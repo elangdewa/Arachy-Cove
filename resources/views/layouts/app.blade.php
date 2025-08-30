@@ -21,7 +21,6 @@
             @include('layouts.header')
 
 
-
             <!-- Page Content -->
             <main>
                 @yield('content')

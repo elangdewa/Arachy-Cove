@@ -63,25 +63,8 @@
                     </button>
                 </form>
 
-                <!-- Divider -->
-                <div class="relative my-8">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-gray-200"></div>
-                    </div>
-                    <div class="relative flex justify-center text-sm">
-                        <span class="px-4 bg-white text-gray-500">Or continue with</span>
-                    </div>
-                </div>
+             
 
-                <!-- Social Login -->
-                <div class="grid grid-cols-2 gap-4">
-                    <button class="flex items-center justify-center px-4 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all duration-300">
-                        <span class="text-sm font-medium text-gray-700">Google</span>
-                    </button>
-                    <button class="flex items-center justify-center px-4 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all duration-300">
-                        <span class="text-sm font-medium text-gray-700">Facebook</span>
-                    </button>
-                </div>
 
                 <!-- Sign Up Link -->
                 <p class="mt-8 text-center text-sm text-gray-600">
