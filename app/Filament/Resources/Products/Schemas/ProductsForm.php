@@ -53,11 +53,14 @@ class ProductsForm
                 ->label('Product Images')
                 ->relationship('images')
                 ->schema([
-                    FileUpload::make('image_path')
+                    FileUpload::make('image')
                         ->label('Image')
                         ->image()
                         ->directory('products/images')
-                        ->required(),
+                         ->visibility('public')
+                        ->required()
+                        ->maxSize(5120)
+                        ->acceptedFileTypes(['image/*'])
                 ])
                 ->columns(1)
                 ->minItems(1)

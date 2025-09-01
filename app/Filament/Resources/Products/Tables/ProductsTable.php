@@ -10,6 +10,8 @@ use Filament\Actions\RestoreBulkAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\ImageColumn;
+
 
 class ProductsTable
 {
@@ -17,8 +19,10 @@ class ProductsTable
     {
         return $table
             ->columns([
-                //
-            ])
+ ImageColumn::make('images.image')
+                ->label('Images')
+                ->circular()
+                ->stacked()            ])
             ->filters([
                 TrashedFilter::make(),
             ])
@@ -32,6 +36,7 @@ class ProductsTable
                     ForceDeleteBulkAction::make(),
                     RestoreBulkAction::make(),
                 ]),
+
             ]);
     }
 }
