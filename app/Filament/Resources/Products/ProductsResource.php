@@ -17,6 +17,10 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Schemas\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Components\RepeatableEntry;
 
 class ProductsResource extends Resource
 {
@@ -31,11 +35,29 @@ public static function form(Schema $schema): Schema
     return $schema->schema(ProductsForm::form());
 }
 
+public static function infolist(Schema $schema): Schema
+{
+    return $schema->components([
+        Section::make('Detail Produk')->schema([
+            TextEntry::make('name')->label('Product Name'),
+            TextEntry::make('description')->label('Description'),
+            TextEntry::make('price')->label('Price'),
+            TextEntry::make('category.name')->label('Category'),
+            TextEntry::make('stock_1')->label('Stock 1'),
+            TextEntry::make('stock_2')->label('Stock 2'),
+            TextEntry::make('stock_3')->label('Stock 3'),
+        ]),
 
-    public static function infolist(Schema $schema): Schema
-    {
-        return ProductsInfolist::configure($schema);
-    }
+        Section::make('Images')->schema([
+            RepeatableEntry::make('images')->schema([
+                ImageEntry::make('image')
+                    ->label('')
+                    ->disk('public')
+                    ->visibility('public'), 
+            ]),
+        ]),
+    ]);
+}
 
     public static function table(Table $table): Table
     {

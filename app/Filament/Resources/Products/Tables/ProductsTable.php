@@ -2,16 +2,11 @@
 
 namespace App\Filament\Resources\Products\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ForceDeleteBulkAction;
-use Filament\Actions\RestoreBulkAction;
-use Filament\Actions\ViewAction;
+use Filament\Actions\{BulkActionGroup, DeleteBulkAction, EditAction, ForceDeleteBulkAction, RestoreBulkAction, ViewAction};
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
-use Filament\Tables\Columns\ImageColumn;
-
+use Filament\Tables\Columns\TextColumn; // <-- ganti import
+// HAPUS: use Filament\Tables\Columns\ImageColumn;
 
 class ProductsTable
 {
@@ -19,10 +14,15 @@ class ProductsTable
     {
         return $table
             ->columns([
- ImageColumn::make('images.image')
-                ->label('Images')
-                ->circular()
-                ->stacked()            ])
+                TextColumn::make('name')
+                    ->label('Nama Produk')
+                    ->searchable()
+                    ->sortable()
+                    ->limit(40),
+                // (opsional) kolom lain:
+                // TextColumn::make('category.name')->label('Kategori')->sortable()->toggleable(),
+                // TextColumn::make('price')->label('Harga'),
+            ])
             ->filters([
                 TrashedFilter::make(),
             ])
@@ -36,7 +36,6 @@ class ProductsTable
                     ForceDeleteBulkAction::make(),
                     RestoreBulkAction::make(),
                 ]),
-
             ]);
     }
 }

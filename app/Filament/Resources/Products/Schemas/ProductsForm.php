@@ -49,22 +49,23 @@ class ProductsForm
                 ->numeric()
                 ->required(),
 
-            Repeater::make('images')
-                ->label('Product Images')
-                ->relationship('images')
-                ->schema([
-                    FileUpload::make('image')
-                        ->label('Image')
-                        ->image()
-                        ->directory('products/images')
-                         ->visibility('public')
-                        ->required()
-                        ->maxSize(5120)
-                        ->acceptedFileTypes(['image/*'])
-                ])
-                ->columns(1)
-                ->minItems(1)
-                ->addActionLabel('Add Image'),
+        Repeater::make('images')
+    ->label('Product Images')
+    ->relationship('images')
+    ->schema([
+        FileUpload::make('image')
+            ->label('Image')
+            ->image()
+            ->disk('public')                  // <= WAJIB
+            ->directory('products/images')
+            ->visibility('public')
+            ->required()
+            ->maxSize(5120)
+            ->acceptedFileTypes(['image/*']),
+    ])
+    ->columns(1)
+    ->minItems(1)
+    ->addActionLabel('Add Image')
         ];
     }
 }
