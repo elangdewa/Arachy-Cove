@@ -15,6 +15,6 @@ public function getImageUrlAttribute()
     }
     public function product()
 {
-    return $this->belongsTo(Product::class, 'product_id');
+    return $this->belongsTo(products::class, 'product_id');
 }
 }

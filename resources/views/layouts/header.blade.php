@@ -12,11 +12,11 @@
 
             <div class="hidden md:flex items-center space-x-12 animate-fadeInDown delay-300">
 
-                <a href="#" class="text-sm font-light uppercase tracking-[0.2em] hover:text-gray-300 transition-colors duration-300 relative group">
-                    Collections
-                    <span class="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
-
+        <a href="{{ route('collections') }}"
+   class="text-sm font-light uppercase tracking-[0.2em] hover:text-gray-300 transition-colors duration-300 relative group">
+  Collections
+  <span class="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+</a>
 
                 <!-- Auth Links -->
                 <div class="flex items-center space-x-6 ml-8 pl-8 border-l border-white/20">
@@ -44,9 +44,10 @@
         <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/95 backdrop-blur-lg z-40 opacity-0 invisible transition-all duration-300">
             <div class="flex flex-col items-center justify-center h-full space-y-8">
 
-                <a href="#" class="text-2xl font-light uppercase tracking-[0.3em] hover:text-gray-300 transition-colors duration-300">
-                    Collections
-                </a>
+           <a href="{{ route('collections') }}"
+   class="text-2xl font-light uppercase tracking-[0.3em] hover:text-gray-300 transition-colors duration-300">
+  Collections
+</a>
 
                 <!-- Mobile Auth Links -->
                 <div class="flex flex-col items-center space-y-6 pt-8 border-t border-white/20">
